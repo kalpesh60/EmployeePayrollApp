@@ -45,7 +45,7 @@ function createAndUpdateStorage(employeePayrollData) {
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayrollData();
     try {
-        employeePayrollData.name = getInputalueByID('#name');
+        employeePayrollData.name = getInputvalueByID('#name');
     } catch (e) {
         setTextValue('.text-error', e);
         throw e;
@@ -53,9 +53,9 @@ const createEmployeePayroll = () => {
     employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
     employeePayrollData.department = getSelectedValues('[name=department]');
-    employeePayrollData.salary = getInputalueByID('#salary');
-    employeePayrollData.note = getInputalueByID('#notes');
-    let date = getInputalueByID('#day') + " " + getInputalueByID('#month') + " " + getInputalueByID('#year');
+    employeePayrollData.salary = getInputvalueByID('#salary');
+    employeePayrollData.note = getInputvalueByID('#notes');
+    let date = getInputvalueByID('#day') + " " + getInputvalueByID('#month') + " " + getInputvalueByID('#year');
     employeePayrollData.date = Date.parse(date);
     alert(employeePayrollData.toString());
     return employeePayrollData;
@@ -70,7 +70,36 @@ const getSelectedValues = (propertyValue) => {
     return setItems;
 }
 
-const getInputalueByID = (id) => {
+const getInputvalueByID = (id) => {
     let value = document.querySelector(id).value;
     return value;
+}
+
+const resetForm = () => {
+    setValue('#name', '');
+    unsetSelectedValues('[name=profile]');
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+    setValue('#salary', '');
+    setValue('#notes', '');
+    setValue('#day', '1');
+    setValue('#month', 'January');
+    setValue('#year', '2020');
+}
+
+const unsetSelectedValues = (propertyValue) => {
+    let allItems = doc.querySelectorAll(propertyValue);
+    allItems.forEach(item => {
+        item.checked = false;
+    });
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
 }
