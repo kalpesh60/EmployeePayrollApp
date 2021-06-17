@@ -88,7 +88,7 @@ const resetForm = () => {
 }
 
 const unsetSelectedValues = (propertyValue) => {
-    let allItems = doc.querySelectorAll(propertyValue);
+    let allItems = document.querySelectorAll(propertyValue);
     allItems.forEach(item => {
         item.checked = false;
     });
