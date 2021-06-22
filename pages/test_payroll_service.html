@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ajax Service And Promise</title>
+    <style>
+        .body {
+            margin: auto;
+        }
+        
+        div {
+            border: 1px solid black;
+            background-color: cadetblue;
+            padding: 50px;
+            width: 80%;
+            font-size: large;
+            margin-top: 50px;
+        }
+    </style>
+    <script src="/js/http_payroll_service.js"></script>
+</head>
+
+<body>
+    <h1>The Test Service Result</h1>
+    <div id="get_service"></div>
+    <div id="delete_service"></div>
+    <div id="post_service"></div>
+    <script>
+        const getElem = document.querySelector("#get_service");
+        const getURL = "http://127.0.0.1:3000/employeePayrollDB/1";
+        makeServiceCall("GET", getURL, true)
+            .then(responseText => {
+                getElem.textContent = "Get User Data : " + responseText;
+            })
+            .catch(error => {
+                getElem.textContent = "GET Error Status: " + JSON.stringify(error);
+            });
+
+        const deleteElem = document.querySelector("#delete_service");
+        const deleteURL = "http://localhost:3000/employeePayrollDB/4";
+        makeServiceCall("DELETE", deleteURL, false)
+            .then(responseText => {
+                deleteElem.textContent = "User Deleted: " + responseText;
+            })
+            .catch(error => {
+                deleteElem.textContent = "DELETE Error Status: " + JSON.stringify(error);
+            });
+
+        const postElem = document.querySelector("#post_service");
+        const postURL = "http://localhost:3000/employeePayrollDB";
+        const emplData = {
+            "_name": "Amarpa Shashanka Keerthi Kumar",
+            "_gender": "female",
+            "_department": [
+                "Sales"
+            ],
+            "_salary": "400000",
+            "_startDate": "29 Oct 2019",
+            "_note": "",
+            "_profilePic": "../assets/profile-images/Ellipse -1.png"
+        };
+        makeServiceCall("POST", postURL, true, emplData)
+            .then(responseText => {
+                postElem.textContent = "User Added: " + responseText;
+            })
+            .catch(error => {
+                postElem.textContent = "POST error Status: " + JSON.stringify(error);
+            });
+    </script>
+</body>
+
+</html>
