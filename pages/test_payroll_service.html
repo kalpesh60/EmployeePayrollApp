@@ -30,7 +30,7 @@
     <div id="post_service"></div>
     <script>
         const getElem = document.querySelector("#get_service");
-        const getURL = "http://127.0.0.1:3000/employeePayrollDB/1";
+        const getURL = "http://127.0.0.1:3000/EmployeePayrollDB/1";
         makeServiceCall("GET", getURL, true)
             .then(responseText => {
                 getElem.textContent = "Get User Data : " + responseText;
@@ -40,7 +40,7 @@
             });
 
         const deleteElem = document.querySelector("#delete_service");
-        const deleteURL = "http://localhost:3000/employeePayrollDB/4";
+        const deleteURL = "http://localhost:3000/EmployeePayrollDB/4";
         makeServiceCall("DELETE", deleteURL, false)
             .then(responseText => {
                 deleteElem.textContent = "User Deleted: " + responseText;
@@ -50,7 +50,7 @@
             });
 
         const postElem = document.querySelector("#post_service");
-        const postURL = "http://localhost:3000/employeePayrollDB";
+        const postURL = "http://localhost:3000/EmployeePayrollDB";
         const emplData = {
             "_name": "Amarpa Shashanka Keerthi Kumar",
             "_gender": "female",
