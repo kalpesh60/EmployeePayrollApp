@@ -71,9 +71,9 @@ const createOrUpdateEmployeePayroll = () => {
 }
 
 const setEmployeePayrollObject = () => {
-    if (!isUpdate && site_properties.use_local_storage.match("true")) {
-        employeePayrollObj.id = createNewEmployeeId();
-    }
+    // if (!isUpdate && site_properties.use_local_storage.match("true")) {
+    //     employeePayrollObj.id = createNewEmployeeId();
+    // }
     employeePayrollObj._name = getInputvalueByID('#name');
     employeePayrollObj._profilePic = getSelectedValues('[name=profile]').pop();
     employeePayrollObj._gender = getSelectedValues('[name=gender]').pop();

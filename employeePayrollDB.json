@@ -4,7 +4,6 @@
             "_name": "Mark",
             "_gender": "male",
             "_department": [
-                "Engineering",
                 "Finance"
             ],
             "_salary": "500000",
@@ -17,12 +16,14 @@
             "_name": "Bill Gates",
             "_gender": "male",
             "_department": [
-                "Engineering"
+                "HR",
+                "Sales",
+                "Others"
             ],
             "_salary": "500000",
             "_startDate": "29 Oct 2019",
             "_note": "Terrific Engineer",
-            "_profilePic": "../assets/profile-images/Ellipse -1.png"
+            "_profilePic": "../assets/profile-images/Ellipse -8.png"
         },
         {
             "_name": "Amarpa Shashanka Keerthi Kumar",
@@ -35,6 +36,19 @@
             "_note": "",
             "_profilePic": "../assets/profile-images/Ellipse -1.png",
             "id": 3
+        },
+        {
+            "_name": "Kalpesh",
+            "_profilePic": "../assets/profile-images/Ellipse -3.png",
+            "_gender": "male",
+            "_department": [
+                "Engineer",
+                "Others"
+            ],
+            "_salary": "400000",
+            "_note": "IT Engg",
+            "_startDate": "1 Jan 2020",
+            "id": 4
         }
     ]
 }
